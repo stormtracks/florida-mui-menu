@@ -71,21 +71,29 @@ class ShowTheLocation extends React.Component {
 
 class MenuAppBar extends React.Component {
   state = {
-    anchorEl: null
+    anchorEl1: null,
+    anchorEl2: null
   };
 
   handleMenu = event => {
-    this.setState({ anchorEl: event.currentTarget });
+    this.setState({ anchorEl1: event.currentTarget });
   };
 
   handleClose = () => {
-    this.setState({ anchorEl: null });
+    this.setState({ anchorEl1: null });
+  };
+
+  handleMenuAdmin = event => {
+    this.setState({ anchorEl2: event.currentTarget });
+  };
+
+  handleCloseAdmin = () => {
+    this.setState({ anchorEl2: null });
   };
 
   render() {
     const { classes } = this.props;
-    const { anchorEl } = this.state;
-    const open = Boolean(anchorEl);
+    const { anchorEl1, anchorEl2 } = this.state;
 
     return (
       <div className={classes.root}>
@@ -101,7 +109,7 @@ class MenuAppBar extends React.Component {
             <div>
               <Typography
                 className={classes.menuButton1}
-                aria-owns={open ? "menu-appbar1" : null}
+                aria-owns={anchorEl1 ? "menu-appbar1" : null}
                 aria-haspopup="true"
                 onClick={this.handleMenu}
                 color="inherit"
@@ -110,7 +118,8 @@ class MenuAppBar extends React.Component {
               </Typography>
               <Menu
                 id="menu-appbar1"
-                anchorEl={anchorEl}
+                anchorEl={anchorEl1}
+                open={Boolean(anchorEl1)}
                 anchorOrigin={{
                   vertical: "top",
                   horizontal: "right"
@@ -119,7 +128,6 @@ class MenuAppBar extends React.Component {
                   vertical: "top",
                   horizontal: "right"
                 }}
-                open={open}
                 onClose={this.handleClose}
               >
                 <MenuItem onClick={this.handleClose}>
@@ -148,16 +156,17 @@ class MenuAppBar extends React.Component {
             <div>
               <IconButton
                 className={classes.menuButton2}
-                aria-owns={open ? "menu-appbar2" : null}
+                aria-owns={anchorEl2 ? "menu-appbar2" : null}
                 aria-haspopup="true"
-                onClick={this.handleMenu}
+                onClick={this.handleMenuAdmin}
                 color="inherit"
               >
                 <AccountCircle />
               </IconButton>
               <Menu
                 id="menu-appbar2"
-                anchorEl={anchorEl}
+                anchorEl={anchorEl2}
+                open={Boolean(anchorEl2)}
                 anchorOrigin={{
                   vertical: "top",
                   horizontal: "right"
@@ -166,8 +175,7 @@ class MenuAppBar extends React.Component {
                   vertical: "top",
                   horizontal: "right"
                 }}
-                open={open}
-                onClose={this.handleClose}
+                onClose={this.handleCloseAdmin}
               >
                 <MenuItem onClick={this.handleClose}>Profile</MenuItem>
                 <MenuItem onClick={this.handleClose}>My account</MenuItem>
