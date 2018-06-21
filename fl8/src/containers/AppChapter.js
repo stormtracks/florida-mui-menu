@@ -6,9 +6,10 @@ import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import MenuItem from "@material-ui/core/MenuItem";
 import Menu from "@material-ui/core/Menu";
+import IconButton from "@material-ui/core/IconButton";
+import AccountCircle from "@material-ui/icons/AccountCircle";
 import { Route, Link } from "react-router-dom";
-
-import withRoot from './../withRoot';
+import withRoot from "./../withRoot";
 
 const styles = {
   root: {
@@ -17,7 +18,11 @@ const styles = {
   flex: {
     flex: 1
   },
-  menuButton: {
+  menuButton1: {
+    marginLeft: -12,
+    marginRight: 420
+  },
+  menuButton2: {
     marginLeft: -12,
     marginRight: 20
   },
@@ -95,7 +100,8 @@ class MenuAppBar extends React.Component {
             </Typography>
             <div>
               <Typography
-                aria-owns={open ? "menu-appbar" : null}
+                className={classes.menuButton1}
+                aria-owns={open ? "menu-appbar1" : null}
                 aria-haspopup="true"
                 onClick={this.handleMenu}
                 color="inherit"
@@ -103,7 +109,7 @@ class MenuAppBar extends React.Component {
                 Menu
               </Typography>
               <Menu
-                id="menu-appbar"
+                id="menu-appbar1"
                 anchorEl={anchorEl}
                 anchorOrigin={{
                   vertical: "top",
@@ -136,6 +142,35 @@ class MenuAppBar extends React.Component {
                     Sec 3
                   </Link>
                 </MenuItem>
+              </Menu>
+            </div>
+
+            <div>
+              <IconButton
+                className={classes.menuButton2}
+                aria-owns={open ? "menu-appbar2" : null}
+                aria-haspopup="true"
+                onClick={this.handleMenu}
+                color="inherit"
+              >
+                <AccountCircle />
+              </IconButton>
+              <Menu
+                id="menu-appbar2"
+                anchorEl={anchorEl}
+                anchorOrigin={{
+                  vertical: "top",
+                  horizontal: "right"
+                }}
+                transformOrigin={{
+                  vertical: "top",
+                  horizontal: "right"
+                }}
+                open={open}
+                onClose={this.handleClose}
+              >
+                <MenuItem onClick={this.handleClose}>Profile</MenuItem>
+                <MenuItem onClick={this.handleClose}>My account</MenuItem>
               </Menu>
             </div>
           </Toolbar>
