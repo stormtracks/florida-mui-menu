@@ -37,6 +37,12 @@ const Home = () => (
   </div>
 );
 
+const Admin = () => (
+  <div>
+    <h2>Admin</h2>
+  </div>
+);
+
 const GetParamsFromMatch = match => {
   const url = match.url;
   let result = url.split("/");
@@ -177,8 +183,11 @@ class MenuAppBar extends React.Component {
                 }}
                 onClose={this.handleCloseAdmin}
               >
-                <MenuItem onClick={this.handleClose}>Profile</MenuItem>
-                <MenuItem onClick={this.handleClose}>My account</MenuItem>
+                <MenuItem onClick={this.handleCloseAdmin}>
+                  <Link className={classes.link} to="/admin">
+                    Admin
+                  </Link>
+                </MenuItem>
               </Menu>
             </div>
           </Toolbar>
@@ -186,6 +195,7 @@ class MenuAppBar extends React.Component {
 
         <div>
           <Route exact path="/" component={Home} />
+          <Route exact path="/admin" component={Admin} />
           <Route path="/ch1/sec1" component={ShowTheLocation} />
           <Route path="/ch1/sec2" component={ShowTheLocation} />
           <Route path="/ch1/sec3" component={ShowTheLocation} />
