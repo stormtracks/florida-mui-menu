@@ -9,6 +9,7 @@ import Menu from "@material-ui/core/Menu";
 import IconButton from "@material-ui/core/IconButton";
 import AccountCircle from "@material-ui/icons/AccountCircle";
 import { Route, Link } from "react-router-dom";
+import Admin from "./Admin";
 import withRoot from "./../withRoot";
 
 const styles = {
@@ -37,11 +38,13 @@ const Home = () => (
   </div>
 );
 
+/*
 const Admin = () => (
   <div>
     <h2>Admin</h2>
   </div>
 );
+*/
 
 const GetParamsFromMatch = match => {
   const url = match.url;
