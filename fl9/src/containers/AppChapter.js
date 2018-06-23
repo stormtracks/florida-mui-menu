@@ -10,6 +10,7 @@ import IconButton from "@material-ui/core/IconButton";
 import AccountCircle from "@material-ui/icons/AccountCircle";
 import { Route, Link } from "react-router-dom";
 import Admin from "./Admin";
+import KeyContainer from "./KeyContainer";
 import withRoot from "./../withRoot";
 
 const styles = {
@@ -38,14 +39,6 @@ const Home = () => (
   </div>
 );
 
-/*
-const Admin = () => (
-  <div>
-    <h2>Admin</h2>
-  </div>
-);
-*/
-
 const GetParamsFromMatch = match => {
   const url = match.url;
   let result = url.split("/");
@@ -71,8 +64,13 @@ class ShowTheLocation extends React.Component {
 
     return (
       <div>
-        <h3>Chapter: {result[0]}</h3>
-        <h4>Section: {result[1]}</h4>
+        <div>
+          <KeyContainer />
+        </div>
+        <div>
+          <h3>Chapter: {result[0]}</h3>
+          <h4>Section: {result[1]}</h4>
+        </div>
       </div>
     );
   }
