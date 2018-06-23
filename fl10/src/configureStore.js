@@ -5,7 +5,7 @@ import rootReducer from "./reducers";
 import { createBrowserHistory } from "history";
 import { routerMiddleware, connectRouter } from "connected-react-router";
 
-const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
+const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const history = createBrowserHistory();
 const loggerMiddleware = createLogger();
