@@ -21,7 +21,7 @@ const styles = {
   },
   menuButton1: {
     marginLeft: -12,
-    marginRight: 420
+    marginRight: 100
   },
   menuButton2: {
     marginLeft: -12,
