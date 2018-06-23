@@ -1,5 +1,4 @@
 import { combineReducers } from "redux";
-//import { checkbox } from "./checkbox";
 import { keys, selectedKey } from "./key";
 
 export const getStateKey = state => {
@@ -7,7 +6,6 @@ export const getStateKey = state => {
 }
 
 const rootReducer = combineReducers({
-//  checkbox,
   keys,
   selectedKey,
 });
