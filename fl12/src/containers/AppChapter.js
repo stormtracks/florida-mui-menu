@@ -182,12 +182,13 @@ export default compose(
 )(AppFrame);
 */
 
-export default compose(
+const part = compose(
     withStyles(styles, {
       name: 'MenuAppBar',
     }),
     connect(mapStateToProps))(MenuAppBar);
 
+export default withRoot(part);
 
 //export default connect(mapStateToProps)(MenuAppBar);
 //export default withRoot(withStyles(styles)(MenuAppBar));
