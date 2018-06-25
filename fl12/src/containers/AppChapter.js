@@ -184,7 +184,7 @@ export default compose(
 
 export default compose(
     withStyles(styles, {
-      name: 'AppChapter',
+      name: 'MenuAppBar',
     }),
     connect(mapStateToProps))(MenuAppBar);
 
