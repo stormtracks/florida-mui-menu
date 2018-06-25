@@ -10,6 +10,8 @@ import IconButton from "@material-ui/core/IconButton";
 import AccountCircle from "@material-ui/icons/AccountCircle";
 import { Link } from "react-router-dom";
 import withRoot from "./../withRoot";
+import compose from 'recompose/compose';
+import { connect } from "react-redux";
 
 const styles = {
   root: {
@@ -155,7 +157,37 @@ class MenuAppBar extends React.Component {
 }
 
 MenuAppBar.propTypes = {
-  classes: PropTypes.object.isRequired
+  classes: PropTypes.object.isRequired,
+  selectedKey: PropTypes.string.isRequired
 };
 
-export default withRoot(withStyles(styles)(MenuAppBar));
+function mapStateToProps(state) {
+  const { selectedKey } = state;
+  return {
+    selectedKey
+  };
+}
+
+// This concept is shown in
+// the material-ui AppFrame
+
+/*
+export default compose(
+  withStyles(styles, {
+    name: 'AppFrame',
+  }),
+  connect(state => ({
+    uiTheme: state.theme,
+  })),
+)(AppFrame);
+*/
+
+export default compose(
+    withStyles(styles, {
+      name: 'AppChapter',
+    }),
+    connect(mapStateToProps))(MenuAppBar);
+
+
+//export default connect(mapStateToProps)(MenuAppBar);
+//export default withRoot(withStyles(styles)(MenuAppBar));
