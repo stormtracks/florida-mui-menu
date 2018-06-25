@@ -8,9 +8,7 @@ import MenuItem from "@material-ui/core/MenuItem";
 import Menu from "@material-ui/core/Menu";
 import IconButton from "@material-ui/core/IconButton";
 import AccountCircle from "@material-ui/icons/AccountCircle";
-import { Route, Link } from "react-router-dom";
-import Admin from "./Admin";
-import KeyContainer from "./KeyContainer";
+import { Link } from "react-router-dom";
 import withRoot from "./../withRoot";
 
 const styles = {
@@ -32,12 +30,6 @@ const styles = {
     textDecoration: "none"
   }
 };
-
-const Home = () => (
-  <div>
-    <h2>Home</h2>
-  </div>
-);
 
 class MenuAppBar extends React.Component {
   state = {
