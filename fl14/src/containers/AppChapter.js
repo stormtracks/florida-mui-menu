@@ -8,14 +8,14 @@ import MenuItem from "@material-ui/core/MenuItem";
 import Menu from "@material-ui/core/Menu";
 import IconButton from "@material-ui/core/IconButton";
 import AccountCircle from "@material-ui/icons/AccountCircle";
-import { Link } from "react-router-dom";
-import withRoot from "./../withRoot";
-import compose from "recompose/compose";
-import { connect } from "react-redux";
-
-//import Routes from "./Routes";
 
 import { Route } from "react-router";
+import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+
+import compose from "recompose/compose";
+
+import withRoot from "./../withRoot";
 import Home from "../components/Home";
 import Admin from "./Admin";
 import ShowTheLocation from "./../components/ShowTheLocation";
@@ -109,41 +109,28 @@ class MenuAppBar extends React.Component {
                   </Link>
                 </MenuItem>
                 <MenuItem onClick={this.handleClose}>
-
                   <Link
                     className={classes.link}
                     to={{ pathname: `/${selectedKey}/sec1` }}
                   >
                     Sec 1
                   </Link>
-
-
                 </MenuItem>
                 <MenuItem onClick={this.handleClose}>
-
-
                   <Link
                     className={classes.link}
                     to={{ pathname: `/${selectedKey}/sec2` }}
                   >
                     Sec 2
                   </Link>
-
-
-
                 </MenuItem>
                 <MenuItem onClick={this.handleClose}>
-
                   <Link
                     className={classes.link}
                     to={{ pathname: `/${selectedKey}/sec3` }}
                   >
                     Sec 3
                   </Link>
-
-
-
-
                 </MenuItem>
               </Menu>
             </div>
