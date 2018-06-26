@@ -10,7 +10,7 @@ import IconButton from "@material-ui/core/IconButton";
 import AccountCircle from "@material-ui/icons/AccountCircle";
 import { Link } from "react-router-dom";
 import withRoot from "./../withRoot";
-import compose from 'recompose/compose';
+import compose from "recompose/compose";
 import { connect } from "react-redux";
 import Routes from "./Routes";
 
@@ -57,8 +57,10 @@ class MenuAppBar extends React.Component {
   };
 
   render() {
-    const { classes } = this.props;
+    const { classes, selectedKey } = this.props;
     const { anchorEl1, anchorEl2 } = this.state;
+
+    console.log("selectedKey = ", selectedKey);
 
     return (
       <div className={classes.root}>
@@ -184,10 +186,11 @@ export default compose(
 */
 
 const part = compose(
-    withStyles(styles, {
-      name: 'MenuAppBar',
-    }),
-    connect(mapStateToProps))(MenuAppBar);
+  withStyles(styles, {
+    name: "MenuAppBar"
+  }),
+  connect(mapStateToProps)
+)(MenuAppBar);
 
 export default withRoot(part);
 
