@@ -12,4 +12,5 @@ continues.
  [connected-react-router](https://github.com/supasate/connected-react-router/tree/master/examples/basic/src) infrastructure.
 
  * fl12 is starting to build the links dynamically
- 
+
+ * fl13 [connected-react-router](https://github.com/supasate/connected-react-router/tree/master/examples/basic/src) has been removed.
