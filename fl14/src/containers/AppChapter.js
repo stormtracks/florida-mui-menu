@@ -12,7 +12,13 @@ import { Link } from "react-router-dom";
 import withRoot from "./../withRoot";
 import compose from "recompose/compose";
 import { connect } from "react-redux";
-import Routes from "./Routes";
+
+//import Routes from "./Routes";
+
+import { Route } from "react-router";
+import Home from "../components/Home";
+import Admin from "./Admin";
+import ShowTheLocation from "./../components/ShowTheLocation";
 
 const styles = {
   root: {
@@ -103,19 +109,41 @@ class MenuAppBar extends React.Component {
                   </Link>
                 </MenuItem>
                 <MenuItem onClick={this.handleClose}>
-                  <Link className={classes.link} to="/ch1/sec1">
+
+                  <Link
+                    className={classes.link}
+                    to={{ pathname: `/${selectedKey}/sec1` }}
+                  >
                     Sec 1
                   </Link>
+
+
                 </MenuItem>
                 <MenuItem onClick={this.handleClose}>
-                  <Link className={classes.link} to="/ch1/sec2">
+
+
+                  <Link
+                    className={classes.link}
+                    to={{ pathname: `/${selectedKey}/sec2` }}
+                  >
                     Sec 2
                   </Link>
+
+
+
                 </MenuItem>
                 <MenuItem onClick={this.handleClose}>
-                  <Link className={classes.link} to="/ch1/sec3">
+
+                  <Link
+                    className={classes.link}
+                    to={{ pathname: `/${selectedKey}/sec3` }}
+                  >
                     Sec 3
                   </Link>
+
+
+
+
                 </MenuItem>
               </Menu>
             </div>
@@ -153,7 +181,15 @@ class MenuAppBar extends React.Component {
             </div>
           </Toolbar>
         </AppBar>
-        <Routes />
+
+        <div>
+          <Route exact path="/" component={Home} />
+          <Route exact path="/admin" component={Admin} />
+
+          <Route path={`/${selectedKey}/sec1`} component={ShowTheLocation} />
+          <Route path={`/${selectedKey}/sec2`} component={ShowTheLocation} />
+          <Route path={`/${selectedKey}/sec3`} component={ShowTheLocation} />
+        </div>
       </div>
     );
   }
