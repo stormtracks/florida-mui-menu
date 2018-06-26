@@ -12,6 +12,7 @@ import { Link } from "react-router-dom";
 import withRoot from "./../withRoot";
 import compose from 'recompose/compose';
 import { connect } from "react-redux";
+import Routes from "./Routes";
 
 const styles = {
   root: {
@@ -150,7 +151,7 @@ class MenuAppBar extends React.Component {
             </div>
           </Toolbar>
         </AppBar>
-
+        <Routes />
       </div>
     );
   }
