@@ -1,5 +1,8 @@
 import React from "react";
+import PropTypes from "prop-types";
+
 import { Route, Switch } from "react-router";
+import { connect } from "react-redux";
 
 import AppChapter from "../containers/AppChapter";
 import Home from "../components/Home";
@@ -27,4 +30,15 @@ class Routes extends React.Component {
   }
 }
 
-export default Routes;
+Routes.propTypes = {
+  selectedKey: PropTypes.string.isRequired
+};
+
+function mapStateToProps(state) {
+  const { selectedKey } = state;
+  return {
+    selectedKey
+  };
+}
+
+export default connect(mapStateToProps)(Routes);
