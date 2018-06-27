@@ -14,3 +14,7 @@ continues.
  * fl12 is starting to build the links dynamically
 
  * fl13 [connected-react-router](https://github.com/supasate/connected-react-router/tree/master/examples/basic/src) has been removed.
+
+ * fl14 has everything working except that when you manually enter the URL's
+ in the address bar it does not work.  fl15 will hopefully solve this issue.
+ 
